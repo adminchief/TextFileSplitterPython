@@ -6,6 +6,7 @@ output_file_path = r"C:\path\to\your\output.txt"  # Replace with your output fil
 line_count = 0
 
 # Open the input file for reading and the output file for writing
+# Using 'latin1' encoding to handle possible non-UTF-8 characters
 with open(input_file_path, "r", encoding="latin1") as infile, open(output_file_path, "w", encoding="utf-8") as outfile:
     # Iterate over each line in the input file
     for line in infile:
