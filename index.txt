@@ -1,0 +1,25 @@
+# Define the input and output file paths
+input_file_path = r"input_file_path.txt"
+output_file_path = r"output_file_path.txt"  # New output file path for lines 5,000,001 to 10,000,000
+
+# Initialize a line counter
+line_count = 0
+
+# Open the input file for reading and the output file for writing
+# Using 'latin1' encoding to handle possible non-UTF-8 characters
+with open(input_file_path, "r", encoding="latin1") as infile, open(output_file_path, "w", encoding="utf-8") as outfile:
+    # Iterate over each line in the input file
+    for line in infile:
+        # Increment the line counter
+        line_count += 1
+        # Skip lines before 5,000,001
+        if line_count < 1:
+            continue
+        # Write the line to the output file if between 5,000,001 and 10,000,000
+        elif line_count <= 10000000:
+            outfile.write(line)
+        # Stop after writing up to line 10,000,000
+        else:
+            break
+
+print(f"Copied lines 1 to 10,000,000 to {output_file_path}.")
